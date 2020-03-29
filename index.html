@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Virus Simulator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h2 class="center">Virus Simulator</h1>
+    <div class="center">
+    <canvas id="myCanvas" width="500" height="500" class="canvas"></canvas>
+        <form class="center-s">
+            <div class="range-wrap">
+                <b><label for="range ">Population size</label></b>
+                <input type="range" id="number-of-people" class="range" value="300" min="0" max="500">
+                <output class="bubble"></output>
+            </div>
+            
+            <div class="range-wrap">
+                <b><label for="range ">% Self Isolating</label></b>
+                <input type="range" id="percent-self-isolating" class="range" value="20" min="0" max="100">
+                <output class="bubble"></output>
+            </div>
+            
+            <div class="range-wrap">
+                <b><label for="range ">Inital infections</label></b>
+                <input type="range" id="initial-infections" class="range" value="2" min="0" max="100">
+                <output class="bubble"></output>
+            </div>
+            
+            <div class="range-wrap" >
+                <b><label for="range ">Time to recover</label></b>
+                <input type="range" id="time-to-recover" class="range" value="15" min="5" max="50">
+                <output class="bubble"></output>
+            </div>
+            <button type="button" class="button" onclick="startSimulation()">Simulate</button>
+        </form>
+    </div>
+</body>
+
+<script src="simulation.js"></script>
+
+<!-- Javascript for input bubbles -->
+<script>
+    const allRanges = document.querySelectorAll(".range-wrap");
+    allRanges.forEach(wrap => {
+    const range = wrap.querySelector(".range");
+    const bubble = wrap.querySelector(".bubble");
+
+    range.addEventListener("input", () => {
+        setBubble(range, bubble);
+    });
+    setBubble(range, bubble);
+    });
+
+    function setBubble(range, bubble) {
+    const val = range.value;
+    const min = range.min ? range.min : 0;
+    const max = range.max ? range.max : 100;
+    const newVal = Number(((val - min) * 100) / (max - min));
+    bubble.innerHTML = val;
+
+    // Sorta magic numbers based on size of the native UI thumb
+    bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+    }
+
+</script>
+</html>
