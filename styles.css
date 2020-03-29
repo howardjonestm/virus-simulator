@@ -23,7 +23,7 @@
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 15px 15px;
+    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -33,15 +33,6 @@
     display: block;
     width: auto;
   }
-
-/* .button {
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    width: auto;
-} */
 
 .canvas {
     padding-left: 0;
