@@ -229,6 +229,7 @@ function startSimulation(){
     clearInterval(initiate)
     clearInterval(days)
 
+    day = 0;
     initiate = setInterval(updateArea, 20);
     days = setInterval(dayCounter, 1000);
 }
