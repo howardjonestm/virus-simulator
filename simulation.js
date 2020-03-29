@@ -14,9 +14,8 @@ var canvasWidth = 500;
 
 //Physics params
 var speedRange  = 1.5;
-var radius = 100;
 
-//Instansiate inital people state
+//Instantiate inital people state
 function createPeople(){
     people = [];
     for(i=0; i<numberOfPeople; i++){
@@ -26,7 +25,7 @@ function createPeople(){
         isRecovered = false
         isSelfIsolating = false
 
-        //Add inital infections
+        //Add initial infections
         if(i < initialInfections){
             isInfected = true
             infectionTime = Math.round((new Date()).getTime() / 1000);
@@ -97,10 +96,10 @@ function component(x,y,xSpeed,ySpeed,isInfected,infectionTime,isRecovered,isSelf
 
     this.detectBoundaryCollision = function(){
         
-        if (this.y >= 480 || this.y <= 0){
+        if (this.y >= canvasHeight || this.y <= 0){
             this.ySpeed = -this.ySpeed*random(0.95,1.05)
         }
-        if (this.x >= 500 || this.x <= 0){
+        if (this.x >= canvasWidth || this.x <= 0){
             this.xSpeed = -this.xSpeed*random(0.95,1.05)
         }
     }
