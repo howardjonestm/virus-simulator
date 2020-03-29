@@ -2,4 +2,4 @@
 
 A simple simulator for virus transmission
 
-View here: https://howardjonestm.github.io/corona-virus-simulator/
+View here: https://howardjonestm.github.io/virus-simulator/
