@@ -197,7 +197,16 @@ function updateArea(){
     ctx.font = "20px Lucida Console";
     ctx.fillStyle = "green";
     ctx.textAlign = "left";
-    ctx.fillText(textR, 370, 490); 
+    ctx.fillText(textR, 370, 490);
+
+    ctx.fillStyle = "#FFEFEC";
+    ctx.fillRect(0, 0, 85, 30);
+
+    textD = "Day: "+ day
+    ctx.font = "20px Lucida Console";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "left";
+    ctx.fillText(textD, 10, 20);
 }
 
 function clearAll(){    
@@ -218,8 +227,16 @@ function startSimulation(){
     clearAll()
     createPeople()
     clearInterval(initiate)
+    clearInterval(days)
 
     initiate = setInterval(updateArea, 20);
+    days = setInterval(dayCounter, 1000);
 }
 
+var day = 1
+function dayCounter(){
+    day++;
+}
+
+days = setInterval(dayCounter, 1000);
 initiate = setInterval(updateArea, 20);
